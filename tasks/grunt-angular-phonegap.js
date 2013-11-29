@@ -57,7 +57,7 @@
       if (target == null) {
         target = "android";
       }
-      return grunt.task.run(['build:phonegap', 'shell:emulate:#{target}']);
+      return grunt.task.run(["shell:emulate:" + target]);
     });
     return grunt.registerTask('phonegap:send', 'Send the app for a remote build', function(target) {
       if (target == null) {
@@ -70,5 +70,5 @@
 }).call(this);
 
 /*
-//@ sourceMappingURL=phonegapgap.js.map
+//@ sourceMappingURL=grunt-angular-phonegap.js.map
 */
