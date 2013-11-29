@@ -7,7 +7,7 @@
 # 
 "use strict"
 module.exports = (grunt) ->
-  
+###
   # Please see the Grunt documentation for more information regarding task
   # creation: http://gruntjs.com/creating-tasks
   grunt.registerMultiTask "phonegapgap", "Grunt task for yeoman generator-phonegapgap", ->
@@ -46,4 +46,12 @@ module.exports = (grunt) ->
       grunt.log.writeln "File \"" + f.dest + "\" created."
 
 
+  grunt.initConfig
+    path: 'www'
+    clean:
+      phonegap: ['<%=path %>/*', '!<%=path %>/config.xml', '!<%=path %>/res']
 
+  grunt.registerTask 'phonegapgap:build', 'Build the app for phonegap', ->
+    grunt.log.writeln "Cleaning!!!!!!!!!!!!"
+    grunt.task.run ['clean:phonegap']
+###

@@ -1,5 +1,15 @@
 # grunt-phonegapgap
 
+## Install
+
+1. `npm install -g phonegap cordova generator-angular`
+2. `phonegap create --name MyApp --id com.yourcompany.myapp myapp && cd myapp`
+3. Add `<preference name="phonegap-version" value="3.1.0" />` in `myapp/www/config.xml`
+4. `cordova platform add android`
+5. `yo angular:app` will feel like "downloading the entire Internet"
+6. Add `"grunt-phonegapgap": "latest"` in `package.json`
+
+
 > Grunt task for yeoman generator-phonegapgap
 
 ## Getting Started
