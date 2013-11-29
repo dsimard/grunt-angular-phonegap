@@ -1,57 +1,41 @@
-#
-# * grunt-phonegapgap
-# * https://github.com/dsimard/grunt-phonegapgap
-# *
-# * Copyright (c) 2013 dsimard
-# * Licensed under the MIT license.
-# 
-"use strict"
-module.exports = (grunt) ->
-###
-  # Please see the Grunt documentation for more information regarding task
-  # creation: http://gruntjs.com/creating-tasks
-  grunt.registerMultiTask "phonegapgap", "Grunt task for yeoman generator-phonegapgap", ->
-  
-    # Merge task-specific and/or target-specific options with these defaults.
-    options = @options(
-      punctuation: "."
-      separator: ", "
-    )
-    
-    # Iterate over all specified file groups.
-    @files.forEach (f) ->
-      
-      # Concat specified files.
-      
-      # Warn on and remove invalid source files (if nonull was set).
-      
-      # Read file source.
-      src = f.src.filter((filepath) ->
-        unless grunt.file.exists(filepath)
-          grunt.log.warn "Source file \"" + filepath + "\" not found."
-          false
-        else
-          true
-      ).map((filepath) ->
-        grunt.file.read filepath
-      ).join(grunt.util.normalizelf(options.separator))
-      
-      # Handle options.
-      src += options.punctuation
-      
-      # Write the destination file.
-      grunt.file.write f.dest, src
-      
-      # Print a success message.
-      grunt.log.writeln "File \"" + f.dest + "\" created."
+{inspect} = require 'util'
 
+module.exports = (grunt)->
+  grunt.config.set ['yeoman', 'phonegap'], 'www'
 
-  grunt.initConfig
-    path: 'www'
-    clean:
-      phonegap: ['<%=path %>/*', '!<%=path %>/config.xml', '!<%=path %>/res']
+  grunt.config.set ['clean', 'phonegap'], ['<%= yeoman.phonegap %>/*', '!<%=yeoman.phonegap %>/config.xml', '!<%= yeoman.phonegap %>/res']
 
-  grunt.registerTask 'phonegapgap:build', 'Build the app for phonegap', ->
-    grunt.log.writeln "Cleaning!!!!!!!!!!!!"
-    grunt.task.run ['clean:phonegap']
-###
+  grunt.config.set ['copy', 'phonegap'],
+    expand: true,
+    cwd: '<%= yeoman.dist %>',
+    dest: '<%= yeoman.phonegap %>',
+    src: '**'
+
+  grunt.config.set ['shell', 'phonegapBuild'], 
+    command: (target="android")->
+      grunt.log.subhead "Building for #{target}"
+      "phonegap local build #{target}"
+    options:
+      stdout: true
+
+  grunt.config.set ['shell', 'emulate'], 
+    command: (target="android")->
+      "phonegap local run #{target} --emulator &"
+    options:
+      stdout: true
+
+  grunt.config.set ['shell', 'phonegapBuildRemote'], 
+    command: (target="android")->
+      grunt.log.subhead "Building remotely for #{target}"
+      "phonegap remote build #{target}"
+    options:
+      stdout: true
+
+  grunt.registerTask 'build:phonegap', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', (target="android")->
+    grunt.task.run ['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:#{target}"]
+
+  grunt.registerTask 'phonegap:emulate', 'Start the app on an emulator', (target="android")->
+    grunt.task.run ['build:phonegap', 'shell:emulate:#{target}']
+
+  grunt.registerTask 'phonegap:send', 'Send the app for a remote build', (target="android")->
+    grunt.task.run ['build:phonegap', "shell:phonegapBuildRemote:#{target}"]
