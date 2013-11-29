@@ -1,6 +1,6 @@
 /*
- * grunt-phonegapgap
- * https://github.com/dsimard/grunt-phonegapgap
+ * grunt-angular-phonegap
+ * https://github.com/dsimard/grunt-angular-phonegap
  *
  * Copyright (c) 2013 dsimard
  * Licensed under the MIT license.
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    phonegapgap: {
+    "angular-phonegap": {
       default_options: {
         options: {
         },
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'phonegapgap', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'angular-phonegap', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

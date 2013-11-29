@@ -1,8 +1,8 @@
 {
-  "name": "grunt-phonegapgap",
-  "description": "Grunt task for yeoman generator-phonegapgap",
+  "name": "grunt-angular-phonegap",
+  "description": "Combine with yeoman/generator-angular and phonegap to create some magic",
   "version": "0.1.0",
-  "homepage": "https://github.com/dsimard/grunt-phonegapgap",
+  "homepage": "https://github.com/dsimard/grunt-angular-phonegap",
   "author": {
     "name": "dsimard",
     "email": "dsimard@azanka.ca",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:dsimard/grunt-phonegapgap.git"
+    "url": "git@github.com:dsimard/grunt-angular-phonegap.git"
   },
   "bugs": {
-    "url": "https://github.com/dsimard/grunt-phonegapgap/issues"
+    "url": "https://github.com/dsimard/grunt-angular-phonegap/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/dsimard/grunt-phonegapgap/blob/master/LICENSE-MIT"
+      "url": "https://github.com/dsimard/grunt-angular-phonegap/blob/master/LICENSE-MIT"
     }
   ],
   "main": "Gruntfile.js",
@@ -37,12 +37,13 @@
     "grunt-contrib-watch": "~0.5.3"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "grunt-shell": "~0.5"
   },
   "keywords": [
     "gruntplugin"
   ],
   "dependencies": {
-    "grunt-shell": "~0.5.0"
+
   }
 }
