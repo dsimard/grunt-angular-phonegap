@@ -10,7 +10,7 @@ Globally install phonegap and yeoman/generator-angular :
 
     npm install -g phonegap cordova generator-angular
 
-Create your phonegap project
+Create your phonegap project :
     
     phonegap create --name MyApp --id com.yourcompany.myapp myapp && cd myapp
     
@@ -31,16 +31,17 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
     
     grunt.loadNpmTasks("grunt-angular-phonegap");
 
-## Other things
 
-### phonegap:build
+## Usage
 
-Build the app locally
+### `grunt phonegap:build`
 
-### phonegap:emulate
+Build the app locally in `www`
+
+### `grunt phonegap:emulate`
 
 Start an emulator
 
-### phonegap:send
+### `grunt phonegap:send`
 
 Send a build to build.phonegap.com
