@@ -1,17 +1,35 @@
 # grunt-angular-phonegap
 
-> Combine with yeoman/generator-angular and phonegap to create some magic
+> Combine yeoman/generator-angular and phonegap
 
 ## Getting started
 
 This plugin requires Grunt `~0.4.1`
 
-1. `npm install -g phonegap cordova generator-angular`
-2. `phonegap create --name MyApp --id com.yourcompany.myapp myapp && cd myapp`
-3. Add `<preference name="phonegap-version" value="3.2.0" />` in `myapp/www/config.xml`
-4. `yo angular:app` will feel like "downloading the entire Internet"
-5. `grunt-angular-phonegap --save-dev`
-6. In `Gruntfile.js`, add this line before the last closing brace : `grunt.loadNpmTasks("grunt-angular-phonegap");`
+Globally install phonegap and yeoman/generator-angular :
+
+    npm install -g phonegap cordova generator-angular
+
+Create your phonegap project
+    
+    phonegap create --name MyApp --id com.yourcompany.myapp myapp && cd myapp
+    
+
+Use the last version of phonegap by adding this line in `myapp/www/config.xml` :
+
+    <preference name="phonegap-version" value="3.1.0" />
+
+Initialize an angular application with yeoman :
+
+    yo angular:app
+    
+Add this project to your `package.json` :
+    
+    grunt-angular-phonegap --save-dev
+    
+Add the tasks for phonegap by adding this line before the last closing brace in `Gruntfile.js` :
+    
+    grunt.loadNpmTasks("grunt-angular-phonegap");
 
 ## Other things
 
