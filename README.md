@@ -25,7 +25,7 @@ Initialize an angular application with yeoman :
     
 Add this project to your `package.json` :
     
-    grunt-angular-phonegap --save-dev
+    npm install grunt-angular-phonegap --save-dev
     
 Add the tasks for phonegap by adding this line before the last closing brace in `Gruntfile.js` :
     
