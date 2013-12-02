@@ -21,7 +21,7 @@ Use the last version of phonegap by adding this line in `myapp/www/config.xml` :
 
 Initialize an angular application with yeoman :
 
-    yo angular:app
+    yo angular [myapp]
     
 Add this project to your `package.json` :
     
