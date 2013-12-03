@@ -47,11 +47,17 @@
         stdout: true
       }
     });
-    grunt.registerTask('build:phonegap', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', function(target) {
+    grunt.registerTask('phonegap:build', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', function(target) {
       if (target == null) {
         target = "android";
       }
       return grunt.task.run(['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:" + target]);
+    });
+    grunt.registerTask('build:phonegap', 'Alias for "phonegap:build"', function(target) {
+      if (target == null) {
+        target = "android";
+      }
+      return grunt.task.run(["phonegap:build:" + target]);
     });
     grunt.registerTask('phonegap:emulate', 'Start the app on an emulator', function(target) {
       if (target == null) {
