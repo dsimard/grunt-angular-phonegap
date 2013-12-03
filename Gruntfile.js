@@ -95,4 +95,10 @@ module.exports = function(grunt) {
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
 
+  // Add a deploy to
+  grunt.registerTask('deploy', 'Build and release', function(target) {
+    target = target || "patch"
+    grunt.task.run(['coffee', 'release:'+target]);
+  });
+
 };
