@@ -75,6 +75,12 @@ module.exports = function(grunt) {
       tests: ['test/*_test.js'],
     },
 
+    // Changelog
+    changelog: {
+      options: {
+      }
+    },
+
   });
 
   // Actually load this plugin's task(s).
@@ -87,6 +93,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-release');
+  grunt.loadNpmTasks('grunt-conventional-changelog');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
@@ -95,10 +102,10 @@ module.exports = function(grunt) {
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
 
-  // Add a deploy to
+  // Add a deploy task
   grunt.registerTask('deploy', 'Build and release', function(target) {
     target = target || "patch"
-    grunt.task.run(['coffee', 'release:'+target]);
+    grunt.task.run(['coffee', 'changelog', ,'release:'+target]);
   });
 
 };

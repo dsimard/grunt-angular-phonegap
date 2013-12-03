@@ -35,7 +35,8 @@
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-watch": "~0.5.3",
-    "grunt-release": "~0.6.0"
+    "grunt-release": "~0.6.0",
+    "grunt-conventional-changelog": "~1.0.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.1",
