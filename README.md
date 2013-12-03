@@ -34,7 +34,7 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
 
 ## Usage
 
-### `grunt phonegap:build`
+### `grunt build:phonegap`
 
 Build the app locally in `www`
 
