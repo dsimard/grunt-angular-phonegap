@@ -49,7 +49,8 @@ module.exports = (grunt) ->
     
     # Changelog
     changelog:
-      options: {}
+      options: 
+        github: 'dsimard/grunt-angular-phonegap'
 
   
   # Actually load this plugin's task(s).
