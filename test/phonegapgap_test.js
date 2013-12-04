@@ -22,13 +22,15 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
+//grunt.loadTasks('tasks');
+
 exports.phonegapgap= {
   setUp: function(done) {
     // setup here if necessary
     done();
   },
   hello: function(test) {
-    grunt.task.run(['clean:phonegap']);
+    test.equal(grunt.config, {});
     test.done();
   }
 };
