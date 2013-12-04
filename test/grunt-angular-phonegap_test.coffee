@@ -1,6 +1,5 @@
 "use strict"
 grunt = require("grunt")
-
 #
 #  ======== A Handy Little Nodeunit Reference ========
 #  https://github.com/caolan/nodeunit
@@ -29,6 +28,40 @@ exports.phonegapgap =
     # setup here if necessary
     done()
 
-  hello: (test) ->
-    test.equal 1,1
+  # All tasks are there
+  checkForTasks: (test) ->
+    tasks = grunt.task._tasks
+    test.ok tasks["phonegap:build"]
+    test.ok tasks["build:phonegap"]
+    test.ok tasks["phonegap:emulate"]
+    test.ok tasks["phonegap:send"]
+    test.done()
+
+  # Configs are ok
+  checkConfig: (test)->
+    config = grunt.config.data
+
+    test.equal 'www', config.yeoman.phonegap
+
+    test.deepEqual ['<%= yeoman.phonegap %>/*', '!<%=yeoman.phonegap %>/config.xml', '!<%= yeoman.phonegap %>/res'], config.clean.phonegap
+
+    test.ok config.copy.phonegap
+
+    test.done()
+
+  # Shells have the right command
+  checkShells: (test)->
+    shell = grunt.config.data.shell
+
+    test.ok shell
+
+    test.equal 'phonegap local build android', shell.phonegapBuild.command()
+    test.equal 'phonegap local build ios', shell.phonegapBuild.command('ios')
+
+    test.equal 'phonegap local run android --emulator &', shell.emulate.command()
+    test.equal 'phonegap local run ios --emulator &', shell.emulate.command('ios')
+
+    test.equal 'phonegap remote build android', shell.phonegapBuildRemote.command()
+    test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
+
     test.done()
