@@ -1,4 +1,4 @@
-# grunt-angular-phonegap
+# grunt-angular-phonegap [![Build Status](https://travis-ci.org/dsimard/grunt-angular-phonegap.png?branch=master)](https://travis-ci.org/dsimard/grunt-angular-phonegap)
 
 > Combine yeoman/generator-angular and phonegap
 
