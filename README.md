@@ -6,6 +6,9 @@
 
 This plugin requires Grunt `~0.4.1`
 
+First, make sure that you installed the proper SDK. Supported platforms are : [Android](https://developer.android.com/sdk/index.html), iOS and WindowsPhone
+
+
 Globally install phonegap and yeoman/generator-angular :
 
     npm install -g phonegap cordova generator-angular
