@@ -55,3 +55,6 @@ Start an emulator.
 ### `grunt phonegap:send:[platform]`
 
 Send the project to remotely build at <http://build.phonegap.com>.
+
+_NOTE :_ Before remotely building, you have to login by executing 
+`phonegap remote login --username you@gmail.com --password YourPassword`
