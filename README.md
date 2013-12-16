@@ -6,6 +6,9 @@
 
 This plugin requires Grunt `~0.4.1`
 
+__WARNING :__ This plugin is still in early alpha. I work on Ubuntu, other operating systems are not tested. Let me know if you need help
+by writing me at <dsimard@azanka.ca>.
+
 First, make sure that you installed the proper SDK. Supported platforms are : [Android](https://developer.android.com/sdk/index.html), iOS and WindowsPhone
 
 
@@ -37,7 +40,7 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
 
 ## Usage
 
-### `grunt phonegap:build`
+### `grunt phonegap:build:[platform]`
 
 Build the app locally in `www`
 
