@@ -1,6 +1,6 @@
 # grunt-angular-phonegap [![Build Status](https://travis-ci.org/dsimard/grunt-angular-phonegap.png?branch=master)](https://travis-ci.org/dsimard/grunt-angular-phonegap)
 
-> Combine yeoman/generator-angular and phonegap
+> Combine [yeoman/generator-angular][1] and phonegap
 
 ## Getting started
 
@@ -12,7 +12,7 @@ by writing me at <dsimard@azanka.ca>.
 First, make sure that you installed the proper SDK. Supported platforms are : [Android](https://developer.android.com/sdk/index.html), iOS and WindowsPhone
 
 
-Globally install phonegap and yeoman/generator-angular :
+Globally install phonegap and [yeoman/generator-angular][1] :
 
     npm install -g phonegap@3.1  generator-angular
 
@@ -58,3 +58,5 @@ Send the project to remotely build at <http://build.phonegap.com>.
 
 _NOTE :_ Before remotely building, you have to login by executing 
 `phonegap remote login --username you@gmail.com --password YourPassword`
+
+[1]: https://github.com/yeoman/generator-angular  "Yeoman generator for AngularJS"
