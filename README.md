@@ -40,14 +40,18 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
 
 ## Usage
 
+`[platform]` supported are : `android`, `ios`, `wp7` and `wp8`. I only test with `android`.
+
+_Default_ is always `android`
+
 ### `grunt phonegap:build:[platform]`
 
-Build the app locally in `www`
+Build the app locally in `www`.
 
-### `grunt phonegap:emulate`
+### `grunt phonegap:emulate:[platform]`
 
-Start an emulator
+Start an emulator.
 
-### `grunt phonegap:send`
+### `grunt phonegap:send:[platform]`
 
-Send a build to build.phonegap.com
+Send the project to remotely build at <http://build.phonegap.com>.
