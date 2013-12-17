@@ -14,17 +14,15 @@ module.exports = (grunt) ->
       src:
         options:
           sourceMap: true
-
-        compileTasks:
-          expand: true
-          cwd: "src"
-          src: ["{,**}/*.coffee"]
-          dest: "tasks/"
-          ext: ".js"
+        expand: true
+        cwd: "src"
+        src: ["{,**}/*.coffee"]
+        dest: "tasks/"
+        ext: ".js"
 
     watch:
       coffee:
-        files: ["src/{,**}/*.coffee"]
+        files: ["{src,lib}/{,**}/*.coffee"]
         tasks: ["coffee:src"]
 
       test:

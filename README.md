@@ -44,15 +44,15 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
 
 _Default_ is always `android`
 
-### `grunt phonegap:build:[platform]`
+### `grunt phonegap:build[:platform]`
 
 Build the app locally in `www`.
 
-### `grunt phonegap:emulate:[platform]`
+### `grunt phonegap:emulate[:platform]`
 
 Start an emulator.
 
-### `grunt phonegap:send:[platform]`
+### `grunt phonegap:send[:platform]`
 
 Send the project to remotely build at <http://build.phonegap.com>.
 

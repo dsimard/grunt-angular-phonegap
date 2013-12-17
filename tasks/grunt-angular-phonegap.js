@@ -3,7 +3,10 @@
 
   inspect = require('util').inspect;
 
+  require('../node_modules/coffee-script');
+
   module.exports = function(grunt) {
+    require('../lib/shell')(grunt);
     grunt.config.set(['yeoman', 'phonegap'], 'www');
     grunt.config.set(['clean', 'phonegap'], ['<%= yeoman.phonegap %>/*', '!<%=yeoman.phonegap %>/config.xml', '!<%= yeoman.phonegap %>/res']);
     grunt.config.set(['copy', 'phonegap'], {
@@ -12,52 +15,11 @@
       dest: '<%= yeoman.phonegap %>',
       src: '**'
     });
-    grunt.config.set(['shell', 'phonegapBuild'], {
-      command: function(target) {
-        if (target == null) {
-          target = "android";
-        }
-        grunt.log.subhead("Building for " + target);
-        return "phonegap local build " + target;
-      },
-      options: {
-        stdout: true
-      }
-    });
-    grunt.config.set(['shell', 'emulate'], {
-      command: function(target) {
-        if (target == null) {
-          target = "android";
-        }
-        return "phonegap local run " + target + " --emulator &";
-      },
-      options: {
-        stdout: true
-      }
-    });
-    grunt.config.set(['shell', 'phonegapBuildRemote'], {
-      command: function(target) {
-        if (target == null) {
-          target = "android";
-        }
-        grunt.log.subhead("Building remotely for " + target);
-        return "phonegap remote build " + target;
-      },
-      options: {
-        stdout: true
-      }
-    });
     grunt.registerTask('phonegap:build', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', function(target) {
       if (target == null) {
         target = "android";
       }
       return grunt.task.run(['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:" + target]);
-    });
-    grunt.registerTask('build:phonegap', 'Alias for "phonegap:build"', function(target) {
-      if (target == null) {
-        target = "android";
-      }
-      return grunt.task.run(["phonegap:build:" + target]);
     });
     grunt.registerTask('phonegap:emulate', 'Start the app on an emulator', function(target) {
       if (target == null) {

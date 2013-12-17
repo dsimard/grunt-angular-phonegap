@@ -31,10 +31,12 @@ exports.phonegapgap =
   # All tasks are there
   checkForTasks: (test) ->
     tasks = grunt.task._tasks
-    test.ok tasks["phonegap:build"]
-    test.ok tasks["build:phonegap"]
-    test.ok tasks["phonegap:emulate"]
-    test.ok tasks["phonegap:send"]
+
+    checkTask = (task)->
+      test.ok tasks[task]?, "`#{task}` is not found"
+
+    checkTask(task) for task in ["phonegap:build", "phonegap:emulate", "phonegap:send"]
+
     test.done()
 
   # Configs are ok
