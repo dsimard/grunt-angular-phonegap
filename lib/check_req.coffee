@@ -11,7 +11,7 @@ r = (grunt)->
       check_reqs.run @async()
     catch
       grunt.log.error "Can't check requirements for `#{target}`.".red
-      grunt.log.error ["Help me improving requirement checks by emailing me at", "dsimard@azanka.ca".bold].join " "
+      grunt.log.error ["Help me improving requirements check by emailing me at", "dsimard@azanka.ca".bold].join " "
     
 
 module.exports = r

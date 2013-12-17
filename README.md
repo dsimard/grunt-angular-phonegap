@@ -44,6 +44,10 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
 
 _Default_ is always `android`
 
+### `grunt phonegap:check[:platform]` (android only)
+
+Check if your computer is ready for PhoneGap development with Android. 
+
 ### `grunt phonegap:build[:platform]`
 
 Build the app locally in `www`.
