@@ -35,7 +35,7 @@ exports.phonegapgap =
     checkTask = (task)->
       test.ok tasks[task]?, "`#{task}` is not found"
 
-    checkTask(task) for task in ["phonegap:build", "phonegap:emulate", "phonegap:send"]
+    checkTask(task) for task in ["phonegap:build", "phonegap:emulate", "phonegap:send", "phonegap:check"]
 
     test.done()
 
@@ -65,5 +65,7 @@ exports.phonegapgap =
 
     test.equal 'phonegap remote build android', shell.phonegapBuildRemote.command()
     test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
+
+    test.equal 'adb version', shell.checkAdb.command()
 
     test.done()

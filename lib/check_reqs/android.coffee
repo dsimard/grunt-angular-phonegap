@@ -3,8 +3,15 @@ path = require 'path'
 
 r = (grunt)->
   check =
+    # Check if ADB is present
+    checkAdb : ->
+      # Check adb version
+      grunt.verbose.writeln "Calling `shell:checkAdb`"
+      grunt.task.run ["shell:checkAdb"]
+
+
     # Check if we have access to check_reqs.js
-    check_reqs_path : ->      
+    checkReqsPath : ->      
       try
         p = path.resolve(process.cwd(), 'platforms/android/cordova/lib/check_reqs')                
         grunt.verbose.writeln "Try to find `check_reqs.js` at `#{p}`"
@@ -18,7 +25,9 @@ r = (grunt)->
 
     # Run check_reqs
     run: (callback)->
-      p = check.check_reqs_path()
+      check.checkAdb callback
+
+      p = check.checkReqsPath()
       if p
         check_reqs = require p
 
@@ -31,6 +40,7 @@ r = (grunt)->
           callback(err)
 
         check_reqs.run().done success, failure
+
       else
         msg = "Cannot find `check_reqs.js`"
         grunt.log.error msg.red
