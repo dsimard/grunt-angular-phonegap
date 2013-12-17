@@ -3,6 +3,7 @@ require '../node_modules/coffee-script'
 
 module.exports = (grunt)->
   require('../lib/shell')(grunt)
+  require('../lib/check_req')(grunt)
 
   grunt.config.set ['yeoman', 'phonegap'], 'www'
 
@@ -22,3 +23,4 @@ module.exports = (grunt)->
 
   grunt.registerTask 'phonegap:send', 'Send the app for a remote build', (target="android")->
     grunt.task.run ['build:phonegap', "shell:phonegapBuildRemote:#{target}"]
+
