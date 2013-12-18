@@ -1,7 +1,7 @@
 {
   "name": "grunt-angular-phonegap",
   "description": "Combine with yeoman/generator-angular and phonegap to create some magic",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/dsimard/grunt-angular-phonegap",
   "author": {
     "name": "dsimard",
