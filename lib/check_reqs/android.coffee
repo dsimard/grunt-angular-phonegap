@@ -27,6 +27,7 @@ r = (grunt)->
     run: (callback)->
       check.checkAdb callback
 
+      # Get the `check_reqs.js` file from phonegap
       p = check.checkReqsPath()
       if p
         check_reqs = require p

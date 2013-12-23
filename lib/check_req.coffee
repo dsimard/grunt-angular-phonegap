@@ -4,7 +4,10 @@ path = require 'path'
 r = (grunt)->
   grunt.registerTask 'phonegap:check', 'Check that your computer is ready for phonegap', (target="android")->
     # If win, do nothing and ask for help
-    return if process.platform is 'win32'
+    if process.platform is 'win32'
+      grunt.log.error "Not available for windows".red
+      grunt.log.error ["Help me improving requirements check by emailing me at", "dsimard@azanka.ca".bold].join " "
+      return
 
     try
       check_reqs = require("./check_reqs/#{target}")(grunt)
