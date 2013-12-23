@@ -1,5 +1,6 @@
 "use strict"
 grunt = require("grunt")
+path = require 'path'
 #
 #  ======== A Handy Little Nodeunit Reference ========
 #  https://github.com/caolan/nodeunit
@@ -67,5 +68,14 @@ exports.phonegapgap =
     test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
 
     test.equal 'adb version', shell.checkAdb.command()
+
+    test.done()
+
+  # Cordova Lib
+  cordovaLibTest: (test)->
+    cordovaLib = require('../lib/cordova_lib')(grunt)
+
+    check_reqs_path = path.resolve(__dirname, '../platforms/android/cordova/lib/check_reqs')
+    test.ok !cordovaLib.exist('check_reqs'), 'Cordova does not exist'
 
     test.done()
