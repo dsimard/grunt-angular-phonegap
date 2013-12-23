@@ -79,3 +79,7 @@ exports.phonegapgap =
     test.ok !cordovaLib.exist('check_reqs'), 'Cordova does not exist'
 
     test.done()
+
+  # Emulate test
+  emulateTest: (test)->
+    test.done()
