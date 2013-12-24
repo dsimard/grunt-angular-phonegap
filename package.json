@@ -29,6 +29,9 @@
     "test": "./node_modules/.bin/grunt test",
     "prepublish": "grunt coffee"
   },
+  "dependencies": {
+    "underscore": "~1.5.2"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-clean": "~0.4.0",
@@ -38,7 +41,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-release": "~0.6.0",
     "grunt-conventional-changelog": "~1.0.0",
-    "grunt-cli": "~0.1.11"
+    "grunt-cli": "~0.1.11",
+    "sinon": "~1.7.3"
   },
   "peerDependencies": {
     "grunt": "~0.4.1",

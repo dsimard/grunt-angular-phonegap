@@ -59,9 +59,11 @@ Check if your computer is ready for PhoneGap development with Android.
 
 Build the app locally in `www`.
 
-### `grunt phonegap:emulate[:platform]`
+### `grunt phonegap:emulate[:platform][:emulator]`
 
-Start an emulator.
+Start an emulator. If there is one already running, it will be used.
+
+Use `:emulator` to specify an emulator already running.
 
 ### `grunt phonegap:send[:platform]`
 

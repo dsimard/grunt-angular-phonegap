@@ -19,8 +19,8 @@ module.exports = (grunt)->
     grunt.task.run ['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:#{target}"]
   
   grunt.registerTask 'phonegap:emulate', 'Start the app on an emulator', (target="android")->
-    emulator = require('../lib/emulator')(grunt)
-    emulator.emulate target    
+    emulator = require('../lib/emulator')(grunt, target)
+    emulator.emulate()    
 
   grunt.registerTask 'phonegap:send', 'Send the app for a remote build', (target="android")->
     grunt.task.run ['build:phonegap', "shell:phonegapBuildRemote:#{target}"]
