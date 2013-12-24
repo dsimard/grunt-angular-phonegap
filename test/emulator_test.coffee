@@ -40,3 +40,11 @@ exports.module =
 
     stub.restore()
     test.done()
+
+  'two emulators started, use one that does not exist': (test)->
+    stub = sinon.stub emulator, "list", ->['first', 'second']
+
+    test.equal 'phonegap install --emulator=first android', emulator.shellCommand("third")
+
+    stub.restore()
+    test.done()

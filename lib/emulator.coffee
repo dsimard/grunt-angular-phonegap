@@ -26,11 +26,9 @@ module.exports = (grunt, target)->
       if _.isEmpty(emulators)
         "phonegap local run #{target} --emulator &"
       else
-        unless emulator?
-          # Use the first one
-          "phonegap install --emulator=#{_.first(emulators)} #{target}"
-        else
+        if emulator? && _.contains(emulators, emulator)
           # Use the specified one
           "phonegap install --emulator=#{emulator} #{target}"
-
-
+        else
+          # Use the first one
+          "phonegap install --emulator=#{_.first(emulators)} #{target}"
