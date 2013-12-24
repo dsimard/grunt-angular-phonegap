@@ -9,7 +9,7 @@ module.exports = (grunt)->
       p
 
     exist : (name, platform="android")->
-      r.path()?
+      r.path(name, platform)?
 
     path : (name, platform="android")->
       grunt.verbose.writeln "Path for : ", platform, name

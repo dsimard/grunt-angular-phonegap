@@ -76,7 +76,9 @@ exports.phonegapgap =
     cordovaLib = require('../lib/cordova_lib')(grunt)
 
     check_reqs_path = path.resolve(__dirname, '../platforms/android/cordova/lib/check_reqs')
-    test.ok !cordovaLib.exist('check_reqs'), 'Cordova does not exist'
+    test.equal check_reqs_path, cordovaLib.rawPath('check_reqs')
+    test.equal "#{check_reqs_path}.js", cordovaLib.path('check_reqs'), 'Path can be loaded'
+    test.ok cordovaLib.exist('check_reqs'), 'Cordova does not exist'
 
     test.done()
 
