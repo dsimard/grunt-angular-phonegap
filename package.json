@@ -30,6 +30,7 @@
     "prepublish": "grunt coffee"
   },
   "dependencies": {
+    "coffee-script": "latest",
     "underscore": "~1.5.2"
   },
   "devDependencies": {
@@ -50,8 +51,5 @@
   },
   "keywords": [
     "gruntplugin"
-  ],
-  "dependencies": {
-    "coffee-script": "latest"
-  }
+  ]
 }
