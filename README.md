@@ -14,7 +14,7 @@ First, make sure that you installed the proper SDK. Supported platforms are : [A
 
 Globally install phonegap and [yeoman/generator-angular][1] :
 
-    npm install -g phonegap@3.1  generator-angular
+    npm install -g phonegap cordova  generator-angular
 
 Create your phonegap project :
     
