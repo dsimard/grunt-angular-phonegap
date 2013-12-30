@@ -70,6 +70,8 @@ Check if your computer is ready for PhoneGap development with Android.
 
 Build the app locally in `www`.
 
+Use `--no-bower` to avoid copying the `bower_components` directory
+
 ### `grunt phonegap:emulate[:platform][:emulator]`
 
 Start an emulator. If there is one already running, it will be used.

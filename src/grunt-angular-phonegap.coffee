@@ -18,7 +18,12 @@ module.exports = (grunt)->
     expand: true,
     cwd: '<%= yeoman.dist %>',
     dest: '<%= yeoman.phonegap %>',
-    src: '**'
+    src: (->
+      grunt.verbose.writeln "Do not copy `bower_components` = #{grunt.option('bower') == false}".yellow
+      sources = ['**']
+      sources.push ['!bower_components/**'] if grunt.option('bower') == false
+      sources
+      )()
 
   grunt.registerTask 'phonegap:build', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', (target="android")->
     grunt.task.run ['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:#{target}"]

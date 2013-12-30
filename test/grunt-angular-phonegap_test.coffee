@@ -81,5 +81,11 @@ tests =
 
     test.done()
 
+  # Check copy
+  checkCopy: (test)->
+    # Default also copies bower_components
+    test.deepEqual ['**'], grunt.config.data.copy.phonegap.src
+    test.done()
+
 
 exports.module = tests
