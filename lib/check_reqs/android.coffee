@@ -2,6 +2,8 @@ path = require 'path'
 {inspect} = require 'util'
 
 r = (grunt)->
+  cordovaLib = require('../cordova_lib')(grunt, "android")
+
   check =
     # Check if ADB is present
     checkAdb : ->
