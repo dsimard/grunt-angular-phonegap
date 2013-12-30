@@ -1,17 +1,17 @@
 path = require 'path'
 
 # Load librairies from `platforms/[platform]/cordova/lib`
-module.exports = (grunt)->
+module.exports = (grunt, platform)->
   r =
-    rawPath : (name, platform="android")->
+    rawPath : (name)->
       p = path.resolve(process.cwd(), "platforms/#{platform}/cordova/lib/#{name}")
       grunt.verbose.writeln "RawPath :", p
       p
 
-    exist : (name, platform="android")->
-      r.path()?
+    exist : (name)->
+      r.path(name, platform)?
 
-    path : (name, platform="android")->
+    path : (name)->
       grunt.verbose.writeln "Path for : ", platform, name
 
       p = r.rawPath name, platform
@@ -25,7 +25,7 @@ module.exports = (grunt)->
         grunt.verbose.error ex
         return
 
-    req : (name, platform="android")->
+    req : (name)->
       grunt.verbose.writeln "Require cordova lib : ", platform, name
       p = r.path(name, platform)
 

@@ -7,8 +7,8 @@ r = (grunt)->
       stdout: true
 
   grunt.config.set ['shell', 'emulate'], 
-    command: (target="android")->
-      "phonegap local run #{target} --emulator &"
+    command: (target="android", emulator="")->
+      emulator = require('../lib/emulator')(grunt, target).shellCommand()
     options:
       stdout: true
 
