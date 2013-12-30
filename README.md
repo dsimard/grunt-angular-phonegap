@@ -38,6 +38,13 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
     grunt.loadNpmTasks("grunt-angular-phonegap");
 
 
+Add those lines to your `.gitignore`
+
+    platforms
+    www
+    !www/config.xml
+    !www/res
+
 ## Usage
 
 `[platform]` supported are : `android`, `ios`, `wp7` and `wp8`. I only test with `android`.
