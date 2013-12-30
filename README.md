@@ -2,6 +2,10 @@
 
 > Combine [yeoman/generator-angular][1] and phonegap
 
+### Demo
+
+You can see a demo application using grunt-angular-phonegap on [dsimard/grunt-angular-phonegap-example](https://github.com/dsimard/grunt-angular-phonegap-example)
+
 ## Getting started
 
 This plugin requires Grunt `~0.4.1`
