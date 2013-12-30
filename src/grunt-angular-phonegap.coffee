@@ -7,7 +7,12 @@ module.exports = (grunt)->
 
   grunt.config.set ['yeoman', 'phonegap'], 'www'
 
-  grunt.config.set ['clean', 'phonegap'], ['<%= yeoman.phonegap %>/*', '!<%=yeoman.phonegap %>/config.xml', '!<%= yeoman.phonegap %>/res']
+  grunt.config.set ['clean', 'phonegap'], 
+    [
+      '<%= yeoman.phonegap %>/*'
+      '!<%=yeoman.phonegap %>/config.xml'
+      '!<%= yeoman.phonegap %>/res'
+    ]
 
   grunt.config.set ['copy', 'phonegap'],
     expand: true,
@@ -18,8 +23,12 @@ module.exports = (grunt)->
   grunt.registerTask 'phonegap:build', 'Build for phonegap (use `build:phonegap:[platform]` when not android)', (target="android")->
     grunt.task.run ['build', 'clean:phonegap', 'copy:phonegap', "shell:phonegapBuild:#{target}"]
   
-  grunt.registerTask 'phonegap:emulate', 'Start the app on an emulator', (target="android")->
-    grunt.task.run ["shell:emulate:#{target}"]
+  grunt.registerTask 'phonegap:emulate', 
+    'Start the app on an emulator (use --emulator=emulator-name to specify one)', 
+    (target="android")->
+      # Send to the emulator
+      emulator = require('../lib/emulator')(grunt, target)
+      emulator.emulate grunt.option('emulator'), @async()
 
   grunt.registerTask 'phonegap:send', 'Send the app for a remote build', (target="android")->
     grunt.task.run ['build:phonegap', "shell:phonegapBuildRemote:#{target}"]

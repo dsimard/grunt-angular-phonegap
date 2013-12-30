@@ -41,6 +41,13 @@ Add the tasks for phonegap by adding this line before the last closing brace in 
     
     grunt.loadNpmTasks("grunt-angular-phonegap");
 
+Add a platform (`android`, `ios`, `wp7` or `wp8`) :
+
+    cordova platform add [platform]
+
+Check that everything works well :
+
+    grunt phonegap:check
 
 Add those lines to your `.gitignore`
 
@@ -63,9 +70,11 @@ Check if your computer is ready for PhoneGap development with Android.
 
 Build the app locally in `www`.
 
-### `grunt phonegap:emulate[:platform]`
+### `grunt phonegap:emulate[:platform][:emulator]`
 
-Start an emulator.
+Start an emulator. If there is one already running, it will be used.
+
+Use `:emulator` to specify an emulator already running.
 
 ### `grunt phonegap:send[:platform]`
 
@@ -73,5 +82,7 @@ Send the project to remotely build at <http://build.phonegap.com>.
 
 _NOTE :_ Before remotely building, you have to login by executing 
 `phonegap remote login --username you@gmail.com --password YourPassword`
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dsimard/grunt-angular-phonegap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [1]: https://github.com/yeoman/generator-angular  "Yeoman generator for AngularJS"

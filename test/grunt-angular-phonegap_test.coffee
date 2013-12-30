@@ -1,5 +1,8 @@
 "use strict"
 grunt = require("grunt")
+path = require 'path'
+sinon = require '../node_modules/sinon'
+_ = require '../node_modules/underscore'
 #
 #  ======== A Handy Little Nodeunit Reference ========
 #  https://github.com/caolan/nodeunit
@@ -22,7 +25,7 @@ grunt = require("grunt")
 
 grunt.loadTasks('./');
 
-exports.phonegapgap =
+tests =
   setUp: (done) ->
     
     # setup here if necessary
@@ -60,12 +63,23 @@ exports.phonegapgap =
     test.equal 'phonegap local build android', shell.phonegapBuild.command()
     test.equal 'phonegap local build ios', shell.phonegapBuild.command('ios')
 
-    test.equal 'phonegap local run android --emulator &', shell.emulate.command()
-    test.equal 'phonegap local run ios --emulator &', shell.emulate.command('ios')
-
     test.equal 'phonegap remote build android', shell.phonegapBuildRemote.command()
     test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
 
     test.equal 'adb version', shell.checkAdb.command()
 
     test.done()
+
+  # Cordova Lib
+  cordovaLibTest: (test)->
+    cordovaLib = require('../lib/cordova_lib')(grunt, "android")
+
+    check_reqs_path = path.resolve(__dirname, '../platforms/android/cordova/lib/check_reqs')
+    test.equal check_reqs_path, cordovaLib.rawPath('check_reqs')
+    test.equal "#{check_reqs_path}.js", cordovaLib.path('check_reqs'), 'Path can be loaded'
+    test.ok cordovaLib.exist('check_reqs'), 'Cordova does not exist'
+
+    test.done()
+
+
+exports.module = tests
