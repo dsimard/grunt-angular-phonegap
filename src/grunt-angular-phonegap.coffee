@@ -7,7 +7,12 @@ module.exports = (grunt)->
 
   grunt.config.set ['yeoman', 'phonegap'], 'www'
 
-  grunt.config.set ['clean', 'phonegap'], ['<%= yeoman.phonegap %>/*', '!<%=yeoman.phonegap %>/config.xml', '!<%= yeoman.phonegap %>/res']
+  grunt.config.set ['clean', 'phonegap'], 
+    [
+      '<%= yeoman.phonegap %>/*'
+      '!<%=yeoman.phonegap %>/config.xml'
+      '!<%= yeoman.phonegap %>/res'
+    ]
 
   grunt.config.set ['copy', 'phonegap'],
     expand: true,
