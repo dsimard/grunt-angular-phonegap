@@ -8,4 +8,7 @@
 .wafpickle-*
 CVS
 npm-debug.log
-src/
+src
+test
+Gruntfile.coffee
+CHANGELOG.md

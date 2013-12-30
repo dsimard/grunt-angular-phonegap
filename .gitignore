@@ -16,3 +16,4 @@ pids
 logs
 results
 tasks/*
+coverage

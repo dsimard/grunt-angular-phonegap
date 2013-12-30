@@ -6,12 +6,6 @@ r = (grunt)->
     options:
       stdout: true
 
-  grunt.config.set ['shell', 'emulate'], 
-    command: (target="android")->
-      "phonegap local run #{target} --emulator &"
-    options:
-      stdout: true
-
   grunt.config.set ['shell', 'phonegapBuildRemote'], 
     command: (target="android")->
       grunt.log.subhead "Building remotely for #{target}"
