@@ -21,8 +21,8 @@ module.exports = (grunt, platform)->
         grunt.verbose.ok "`#{name}` found at `#{p}`"
         return p 
       catch ex
-        grunt.verbose.writeln "Error when looking for path for : ", platform, name
-        grunt.verbose.error ex
+        grunt.log.writeln "Error when looking for path for : ", platform, name
+        grunt.log.error ex
         return
 
     req : (name)->

@@ -4,47 +4,51 @@ sinon = require '../node_modules/sinon'
 emulator = require('../lib/emulator')(grunt, "android")
 shell = grunt.config.data.shell
 
+stubList = (list)->
+  stub = sinon.stub emulator, "list", (cb)->
+    cb(list)
+
 exports.module = 
   setUp: (done) ->
     emulator.list.restore?()
     done()
 
   'emulator not started': (test)->
-    stub = sinon.stub emulator, "list", ->[]
-
-    test.equal 'phonegap local run android --emulator &', emulator.shellCommand()
-
-    stub.restore()
-    test.done()
+    stub = stubList []
+    
+    emulator.shellArgs (cmd)->
+      test.equal 'local run android --emulator', cmd.join(" ")
+      stub.restore()
+      test.done()
 
   'single emulator started': (test)->
-    stub = sinon.stub emulator, "list", ->['single']
-
-    test.equal 'phonegap install --emulator=single android', emulator.shellCommand()
-
-    stub.restore()
-    test.done()
+    stub = stubList ['single']
+    
+    emulator.shellArgs (cmd)->
+      test.equal 'install android --emulator=single', cmd.join(" ")
+      stub.restore()
+      test.done()
 
   'two emulators started, use first one': (test)->
-    stub = sinon.stub emulator, "list", ->['first', 'second']
-
-    test.equal 'phonegap install --emulator=first android', emulator.shellCommand()
-
-    stub.restore()
-    test.done()
+    stub = stubList ['first', 'second']
+    
+    emulator.shellArgs (cmd)->
+      test.equal 'install android --emulator=first', cmd.join(" ")
+      stub.restore()
+      test.done()
 
   'two emulators started, use selected': (test)->
-    stub = sinon.stub emulator, "list", ->['first', 'second']
-
-    test.equal 'phonegap install --emulator=second android', emulator.shellCommand("second")
-
-    stub.restore()
-    test.done()
+    stub = stubList ['first', 'second']
+    
+    emulator.shellArgs "second", (cmd)->
+      test.equal 'install android --emulator=second', cmd.join(" ")
+      stub.restore()
+      test.done()
 
   'two emulators started, use one that does not exist': (test)->
-    stub = sinon.stub emulator, "list", ->['first', 'second']
-
-    test.equal 'phonegap install --emulator=first android', emulator.shellCommand("third")
-
-    stub.restore()
-    test.done()
+    stub = stubList ['first', 'second']
+    
+    emulator.shellArgs "third", (cmd)->
+      test.equal 'install android --emulator=first', cmd.join(" ")
+      stub.restore()
+      test.done()

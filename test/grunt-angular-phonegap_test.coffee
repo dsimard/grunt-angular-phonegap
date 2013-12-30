@@ -63,9 +63,6 @@ tests =
     test.equal 'phonegap local build android', shell.phonegapBuild.command()
     test.equal 'phonegap local build ios', shell.phonegapBuild.command('ios')
 
-    test.equal 'phonegap local run android --emulator &', shell.emulate.command()
-    test.equal 'phonegap local run ios --emulator &', shell.emulate.command('ios')
-
     test.equal 'phonegap remote build android', shell.phonegapBuildRemote.command()
     test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
 
