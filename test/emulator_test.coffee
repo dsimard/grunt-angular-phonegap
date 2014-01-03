@@ -10,7 +10,6 @@ stubList = (list)->
 
 exports.module = 
   setUp: (done) ->
-    emulator.list.restore?()
     done()
 
   'emulator not started': (test)->

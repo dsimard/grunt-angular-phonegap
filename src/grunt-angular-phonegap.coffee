@@ -3,7 +3,7 @@ require '../node_modules/coffee-script'
 
 module.exports = (grunt)->
   require('../lib/shell')(grunt)
-  require('../lib/check_req')(grunt)
+  require('../lib/phonegap.check')(grunt)
 
   grunt.config.set ['yeoman', 'phonegap'], 'www'
 
