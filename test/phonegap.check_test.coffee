@@ -34,3 +34,7 @@ exports.module =
     test.deepEqual check.appendToGitignore(), [], 'Should not add items'
     stub.restore()
     test.done()
+
+  'should write .gitkeep in platforms': (test)->
+    test.ok check.shouldWriteGitKeepInPlatforms()
+    test.done()
