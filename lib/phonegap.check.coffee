@@ -4,7 +4,7 @@ _ = require '../node_modules/underscore'
 
 g = (grunt)->
   r =
-    IGNORES : ['platforms'
+    IGNORES : ['platforms/**/'
       'www'
       '!www/config.xml'
       '!www/res'
