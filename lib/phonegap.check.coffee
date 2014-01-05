@@ -4,11 +4,25 @@ _ = require '../node_modules/underscore'
 
 g = (grunt)->
   r =
-    IGNORES : ['platforms'
+    IGNORES : ['platforms/**/'
       'www'
       '!www/config.xml'
       '!www/res'
     ]
+
+    # The `platforms/` directory must never be deleted
+    # but most not be add to git neither.
+    # This will check that there's a `.gitkeep` file in the directory
+    writeGitKeepInPlatforms : ->
+      if r.shouldWriteGitKeepInPlatforms()
+        grunt.log.warn 'No `.gitkeep` in `platforms/`, it will be created'.yellow
+        grunt.file.mkdir 'platforms'
+        grunt.file.write 'platforms/.gitkeep', ''
+      else
+        grunt.verbose.writeln "There's a `.gitkeep in `platforms/`".yellow
+
+    shouldWriteGitKeepInPlatforms : ->
+      !grunt.file.exists("platforms/.gitkeep")
 
     writeGitignore : ->
       linesToAppend = r.appendToGitignore()
@@ -43,6 +57,7 @@ g = (grunt)->
   grunt.registerTask 'phonegap:check', 'Check that your computer is ready for phonegap', (target="android")->
     done = @async()
 
+    r.writeGitKeepInPlatforms()
     r.writeGitignore()
 
     # If win, do nothing and ask for help

@@ -23,7 +23,7 @@ exports.module =
 
   'half .gitignore': (test)->
     stub = stubGitIgnore(_.first(check.IGNORES, 2))
-    test.equal "\nfirst_line\nplatforms\nwww", check.readGitignore()
+    test.equal "\nfirst_line\nplatforms/**/\nwww", check.readGitignore()
     test.deepEqual check.appendToGitignore(), ['!www/config.xml', '!www/res'],
       'Should contains the lasts two items'
     stub.restore()
@@ -33,4 +33,8 @@ exports.module =
     stub = stubGitIgnore(check.IGNORES)
     test.deepEqual check.appendToGitignore(), [], 'Should not add items'
     stub.restore()
+    test.done()
+
+  'should write .gitkeep in platforms': (test)->
+    test.ok check.shouldWriteGitKeepInPlatforms()
     test.done()
