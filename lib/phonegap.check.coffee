@@ -54,7 +54,7 @@ g = (grunt)->
 
     try
       check_reqs = require("./check_reqs/#{target}")(grunt)
-      check_reqs.run @async()
+      check_reqs.run done
     catch ex
       grunt.verbose.error "Error while registering task `phonegap:check`", ex
       grunt.log.error "Can't check requirements for `#{target}`.".red
