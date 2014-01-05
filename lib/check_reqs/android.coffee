@@ -30,7 +30,8 @@ r = (grunt)->
         checkReqs.run().done success, failure
 
       else
-        msg = "Cannot find `check_reqs.js`"
+        msg = "Cannot find `check_reqs.js`, probably you didn't add the platform."
+        msg += "Run `cordova platform add android`"
         grunt.log.error msg.red
         callback msg
 
