@@ -39,7 +39,7 @@ module.exports = (grunt, target)->
       r.list (emulators)->      
         # Start an emulator if none is running
         if _.isEmpty(emulators)
-          callback ["local", "run", target, "--emulator"]
+          callback ["local", "run", target, "--emulator", "&"]
         else
           args = ["install", target]
           if emulatorName? && _.contains(emulators, emulatorName)
