@@ -49,13 +49,6 @@ Check that everything works well :
 
     grunt phonegap:check
 
-Add those lines to your `.gitignore`
-
-    platforms
-    www
-    !www/config.xml
-    !www/res
-
 ## Usage
 
 `[platform]` supported are : `android`, `ios`, `wp7` and `wp8`. I only test with `android`.
