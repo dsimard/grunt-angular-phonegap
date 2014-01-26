@@ -23,12 +23,15 @@ _ = require '../node_modules/underscore'
 #    test.ifError(value)
 #
 
-grunt.loadTasks('./');
-
 tests =
   setUp: (done) ->
-    
+    @spyInitConfig = sinon.spy grunt, "initConfig"
+    grunt.loadTasks './'    
     # setup here if necessary
+    done()
+
+  tearDown: (done)->
+    @spyInitConfig.restore()
     done()
 
   # All tasks are there
@@ -86,6 +89,13 @@ tests =
     # Default also copies bower_components
     test.deepEqual ['**'], grunt.config.data.copy.phonegap.src
     test.done()
+
+  # 
+  replaceGruntInitConfig: (test)->
+    test.ok @spyInitConfig.calledOnce
+
+    test.done()
+
 
 
 exports.module = tests

@@ -18,7 +18,7 @@ First, make sure that you installed the proper SDK. Supported platforms are : [A
 
 Globally install phonegap and [yeoman/generator-angular][1] :
 
-    npm install -g phonegap cordova  generator-angular
+    npm install -g phonegap cordova generator-angular
 
 Create your phonegap project :
     
@@ -36,10 +36,6 @@ Initialize an angular application with yeoman :
 Add this project to your `package.json` :
     
     npm install grunt-angular-phonegap --save-dev
-    
-Add the tasks for phonegap by adding this line before the last closing brace in `Gruntfile.js` :
-    
-    grunt.loadNpmTasks("grunt-angular-phonegap");
 
 Add a platform (`android`, `ios`, `wp7` or `wp8`) :
 
