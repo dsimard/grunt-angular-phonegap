@@ -16,7 +16,7 @@ exports.module =
     stub = stubList []
     
     emulator.shellArgs (cmd)->
-      test.equal 'local run android --emulator', cmd.join(" ")
+      test.equal 'local run android --emulator &', cmd.join(" ")
       stub.restore()
       test.done()
 
