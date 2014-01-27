@@ -45,13 +45,6 @@ Check that everything works well :
 
     grunt phonegap:check
 
-Add those lines to your `.gitignore`
-
-    platforms
-    www
-    !www/config.xml
-    !www/res
-
 ## Usage
 
 `[platform]` supported are : `android`, `ios`, `wp7` and `wp8`. I only test with `android`.
@@ -80,7 +73,5 @@ Send the project to remotely build at <http://build.phonegap.com>.
 
 _NOTE :_ Before remotely building, you have to login by executing 
 `phonegap remote login --username you@gmail.com --password YourPassword`
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dsimard/grunt-angular-phonegap/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 [1]: https://github.com/yeoman/generator-angular  "Yeoman generator for AngularJS"
