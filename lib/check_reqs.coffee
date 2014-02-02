@@ -1,19 +1,13 @@
 {inspect} = require 'util'
 
-r = (grunt)->
-  cordovaLib = require('../cordova_lib')(grunt, "android")
+r = (grunt, target)->
+  cordovaLib = require('./cordova_lib')(grunt, target)
 
   check =
-    # Check if ADB is present
-    checkAdb : ->
-      # Check adb version
-      grunt.verbose.writeln "Calling `shell:checkAdb`"
-      grunt.task.run ["shell:checkAdb"]
-
-
     # Run check_reqs
     run: (callback)->
-      check.checkAdb callback
+      grunt.verbose.writeln "Calling `shell:checkAdb`"
+      grunt.task.run ["shell:checkAdb"]
 
       # Get the `check_reqs.js` file from phonegap
       checkReqs = cordovaLib.req 'check_reqs'
