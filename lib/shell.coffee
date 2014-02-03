@@ -1,4 +1,8 @@
 r = (grunt)->
+  # Initialize a variable for the `checkAdb` callback
+  # TODO : this is not clean
+  _target = "" 
+
   grunt.config.set ['shell', 'phonegapBuild'], 
     command: (target="android")->
       grunt.log.subhead "Building for #{target}"
@@ -15,8 +19,17 @@ r = (grunt)->
 
   # Register the task that returns the ADB version for android
   checkAdb = (err, stdout, sterr, cb)->
+    if process.platform is 'win32'
+      grunt.log.warn "`grunt phonegap:checkAdb` is not working on Windows"
+      grunt.log.warn ["Help me improving `checkAdb` by emailing me at", "dsimard@azanka.ca".bold].join " "
+      return cb?()
+
+    if _target isnt "android"
+      grunt.log.warn "`grunt phonegap:checkAdb` is Android only".yellow
+      return cb?()
+
     if err
-      grunt.log.error "`adb` is not in your PATH variable environment (see https://github.com/dsimard/grunt-angular-phonegap/issues/9)".red 
+      grunt.log.writeln "`adb` is not in your PATH variable environment (see https://github.com/dsimard/grunt-angular-phonegap/issues/9)".red 
     else
       grunt.verbose.ok "`adb` is installed : #{stdout}"
 
@@ -24,8 +37,13 @@ r = (grunt)->
 
   grunt.config.set ['shell', 'checkAdb'], 
     command: (target="android")->
-      "adb version"
+      _target = target
+      if target is "android"
+        "adb version" 
+      else
+        ""
+
     options:
-      callback: checkAdb
+      callback: (checkAdb)
 
 module.exports = r

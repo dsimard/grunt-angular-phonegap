@@ -70,6 +70,7 @@ tests =
     test.equal 'phonegap remote build ios', shell.phonegapBuildRemote.command('ios')
 
     test.equal 'adb version', shell.checkAdb.command()
+    test.equal '', shell.checkAdb.command("ios")
 
     test.done()
 
