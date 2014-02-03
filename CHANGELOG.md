@@ -1,3 +1,11 @@
+<a name="v0.1.6"></a>
+### v0.1.6 (2014-02-03)
+
+
+#### Bug Fixes
+
+* `grunt shell:checkAdb` handles OS and platform the right way ([89631e1d](http://github.com/dsimard/grunt-angular-phonegap/commit/89631e1d1cb3cb800acf5bcc4ddaf3114ddf202e), closes [#32](http://github.com/dsimard/grunt-angular-phonegap/issues/32))
+
 <a name="v0.1.5"></a>
 ### v0.1.5 (2014-01-27)
 
