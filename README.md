@@ -51,9 +51,9 @@ Check that everything works well :
 
 _Default_ is always `android`
 
-### `grunt phonegap:check[:platform]` (android only)
+### `grunt phonegap:check[:platform]`
 
-Check if your computer is ready for PhoneGap development with Android. 
+Check if your computer is ready for PhoneGap development. 
 
 ### `grunt phonegap:build[:platform]`
 
