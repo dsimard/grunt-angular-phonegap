@@ -94,9 +94,6 @@ tests =
   # 
   replaceGruntInitConfig: (test)->
     test.ok @spyInitConfig.calledOnce
-
     test.done()
-
-
 
 exports.module = tests
