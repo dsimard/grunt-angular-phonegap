@@ -33,8 +33,3 @@ exports.module =
     test.deepEqual gitignore.missingLines(), [], 'Should not add items'
     stub.restore()
     test.done()
-
-  'should write .gitkeep in platforms': (test)->
-    check = require('../lib/phonegap.check')(grunt)
-    test.ok check.shouldWriteGitKeepInPlatforms()
-    test.done()
