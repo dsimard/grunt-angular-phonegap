@@ -32,6 +32,7 @@ tests =
 
   tearDown: (done)->
     @spyInitConfig.restore()
+    grunt.file.delete('platforms/.gitkeep')
     done()
 
   # All tasks are there
@@ -91,9 +92,14 @@ tests =
     test.deepEqual ['**'], grunt.config.data.copy.phonegap.src
     test.done()
 
-  # 
+  # Check if init config is called
   replaceGruntInitConfig: (test)->
     test.ok @spyInitConfig.calledOnce
+    test.done()
+
+  # Check if .gitkeep is present in `platforms`
+  checkGitKeep: (test)->
+    test.ok grunt.file.exists('platforms/.gitkeep')
     test.done()
 
 exports.module = tests

@@ -39,6 +39,7 @@ fct = (grunt)->
     # Write missing lines
     append : ->
       if r.someLinesAreMissing()
+        grunt.log.warn ["Some lines are missing to `.gitignore`,", "they will be written".bold].join(" ").yellow
         linesToAppend = r.missingLines()
         linesToAppend = linesToAppend.join "\n"
         grunt.log.ok "Writing #{inspect(linesToAppend)} to `.gitignore`"
@@ -46,6 +47,7 @@ fct = (grunt)->
         gitignore = r.readGitignore()
         gitignore += "\n#{linesToAppend}"
         grunt.file.write '.gitignore', gitignore
-
+      else
+        grunt.verbose.writeln "`.gitignore` is OK"
 
 module.exports = fct

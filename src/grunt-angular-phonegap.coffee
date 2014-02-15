@@ -4,9 +4,16 @@ _ = require '../node_modules/underscore'
 
 module.exports = (grunt)->
   @initAngularPhonegapConfig = ->
+    gitignore = require('../lib/gitignore')(grunt)
+    gitkeep = require('../lib/platforms_gitkeep')(grunt)
+
     # Add stuff from grunt-angular-phonegap
     require('../lib/shell')(grunt)
     require('../lib/phonegap.check')(grunt)
+
+    # Force to write `.gitignore` and `platform/.gitkeep`
+    gitignore.append()
+    gitkeep.write() 
 
     grunt.config.set ['yeoman', 'phonegap'], 'www'
 
