@@ -27,7 +27,7 @@ Create your phonegap project :
 
 Use the last version of phonegap by adding this line in `myapp/www/config.xml` :
 
-    <preference name="phonegap-version" value="3.1.0" />
+    <preference name="phonegap-version" value="3.4.0" />
 
 Initialize an angular application with yeoman :
 
@@ -91,3 +91,12 @@ For customers, I would suggest [ionic][]
 [generator-angular]: https://github.com/yeoman/generator-angular  "Yeoman generator for AngularJS"
 [bootstrap3]: http://getbootstrap.com/
 [ionic]: http://ionicframework.com/
+
+### OSX Mavericks complains about `ant`
+
+    $ brew update
+    $ brew install ant
+    
+### Cordova complains about outdated Android SDK
+
+    $ android update sdk
