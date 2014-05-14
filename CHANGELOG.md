@@ -1,3 +1,24 @@
+<a name="v0.1.6"></a>
+### v0.1.6 (2014-02-03)
+
+
+#### Bug Fixes
+
+* `grunt shell:checkAdb` handles OS and platform the right way ([89631e1d](http://github.com/dsimard/grunt-angular-phonegap/commit/89631e1d1cb3cb800acf5bcc4ddaf3114ddf202e), closes [#32](http://github.com/dsimard/grunt-angular-phonegap/issues/32))
+
+<a name="v0.1.5"></a>
+### v0.1.5 (2014-01-27)
+
+
+#### Bug Fixes
+
+* don't hang when starting the emulator for the first time ([ff03a5ca](http://github.com/dsimard/grunt-angular-phonegap/commit/ff03a5ca3a213b4e687b688a38bc51ee49cb7182), closes [#20](http://github.com/dsimard/grunt-angular-phonegap/issues/20))
+
+
+#### Features
+
+* Get rid of the `loadNpmTasks` step in *Getting Started* ([285e44a3](http://github.com/dsimard/grunt-angular-phonegap/commit/285e44a38841e896c606d0a52763e749d9beb229), closes [#2](http://github.com/dsimard/grunt-angular-phonegap/issues/2))
+
 <a name="v0.1.4"></a>
 ### v0.1.4 (2014-01-05)
 
