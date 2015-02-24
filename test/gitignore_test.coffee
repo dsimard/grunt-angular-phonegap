@@ -23,7 +23,7 @@ exports.module =
 
   'half .gitignore': (test)->
     stub = stubGitIgnore(_.first(gitignore.LINES, 2))
-    test.equal "\nfirst_line\nplatforms/**/\nwww", gitignore.read()
+    test.equal "\nfirst_line\nplatforms/**/\nwww/*", gitignore.read()
     test.equal 2, gitignore.missingLines().length
     stub.restore()
     test.done()
