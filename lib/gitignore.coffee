@@ -8,7 +8,7 @@ fct = (grunt)->
   r =
     # Lines that should be in the file
     LINES : ['platforms/**/'
-      'www'
+      'www/*'
       '!www/config.xml'
       '!www/res'
     ]
