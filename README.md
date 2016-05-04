@@ -8,22 +8,21 @@ You can see a demo application using grunt-angular-phonegap on [dsimard/grunt-an
 
 ## Getting started
 
-This plugin requires Grunt `~0.4.1`
+This plugin requires Grunt `~1.0.0`
 
 __WARNING :__ This plugin is still in early alpha. I work on Ubuntu, other operating systems are not tested. Let me know if you need help
 by writing me at <dsimard@azanka.ca>.
 
 First, make sure that you installed the proper SDK. Supported platforms are : [Android](https://developer.android.com/sdk/index.html), iOS and WindowsPhone
 
-
 Globally install phonegap and [yeoman/generator-angular][generator-angular] :
 
     npm install -g phonegap cordova generator-angular
 
 Create your phonegap project :
-    
+
     phonegap create --name MyApp --id com.yourcompany.myapp myapp && cd myapp
-    
+
 
 Use the last version of phonegap by adding this line in `myapp/www/config.xml` :
 
@@ -32,9 +31,9 @@ Use the last version of phonegap by adding this line in `myapp/www/config.xml` :
 Initialize an angular application with yeoman :
 
     yo angular [myapp]
-    
+
 Add this project to your `package.json` :
-    
+
     npm install grunt-angular-phonegap --save-dev
 
 Add a platform (`android`, `ios`, `wp7` or `wp8`) :
@@ -53,7 +52,7 @@ _Default_ is always `android`
 
 ### `grunt phonegap:check[:platform]`
 
-Check if your computer is ready for PhoneGap development. 
+Check if your computer is ready for PhoneGap development.
 
 ### `grunt phonegap:build[:platform]`
 
@@ -71,7 +70,7 @@ Use `:emulator` to specify an emulator already running.
 
 Send the project to remotely build at <http://build.phonegap.com>.
 
-_NOTE :_ Before remotely building, you have to login by executing 
+_NOTE :_ Before remotely building, you have to login by executing
 `phonegap remote login --username you@gmail.com --password YourPassword`
 
 ## FAQ
@@ -96,7 +95,7 @@ For customers, I would suggest [ionic][]
 
     $ brew update
     $ brew install ant
-    
+
 ### Cordova complains about outdated Android SDK
 
     $ android update sdk
